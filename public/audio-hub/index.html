@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wyrá Audio Hub — ESP32 Wi-Fi &amp; Bluetooth audio interface</title>
+  <meta name="description" content="An ESP32 stereo audio interface for your mixer: stream over Wi-Fi, play from your phone over Bluetooth, or pass audio straight through. 44.1 kHz / 16-bit. Build kit coming soon.">
+  <link rel="canonical" href="https://wyra.pages.dev/audio-hub/">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Wyrá">
+  <meta property="og:title" content="Wyrá Audio Hub — ESP32 Wi-Fi & Bluetooth audio interface">
+  <meta property="og:description" content="Stereo line in and out for your mixer, with Wi-Fi streaming, Bluetooth playback and a hardware mode switch.">
+  <meta property="og:url" content="https://wyra.pages.dev/audio-hub/">
+  <meta property="og:image" content="https://wyra.pages.dev/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/img/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Wyrá home">
+        <img src="/assets/img/logo-bird-360.webp" width="360" height="200" alt="">
+        <span class="wordmark">Wyrá</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#products" aria-current="page">Products</a>
+        <a href="/services/">Services</a>
+        <a class="nav-optional" href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumbs"><a href="/#products">Products</a><span>/</span>Audio Hub</p>
+        <div class="split">
+          <div>
+            <span class="badge badge--soon">Build kit coming soon</span>
+            <h1 class="metal">Wyrá Audio Hub</h1>
+            <p class="lead">An ESP32 stereo audio interface for your mixer. Stream over Wi-Fi, play from your phone over Bluetooth, or monitor locally, all picked with a hardware switch.</p>
+            <ul class="chips" aria-label="Key specs">
+              <li>44.1 kHz / 16-bit</li>
+              <li>Stereo in + out</li>
+              <li>Wi-Fi + Bluetooth</li>
+              <li>Up to 4 apps</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Audio%20Hub%20-%20let%20me%20know%20when%20it's%20ready">Get notified</a>
+              <a class="btn btn--ghost" href="https://github.com/WyraGit/ESP-32-Audio-IO">View the source</a>
+            </div>
+          </div>
+          <figure class="screen">
+            <img src="/assets/img/audio-hub-dashboard.webp" width="640" height="1079" alt="The Audio Hub web dashboard on a phone: TCP server mode, device IP, two connected clients, network time and line-in and line-out level meters">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">How it works</p>
+          <h2 class="metal">From the mixer to wherever the switch points</h2>
+          <p class="lead">Line-level audio from your mixer goes into a PCM1808 converter, through the ESP32, and out to your network or back to the mixer through a PCM5102A converter.</p>
+          <p class="muted">A small OLED on the device shows the mode, the IP address and live input and output level meters. Moving the switch restarts the audio path in the new mode, with no reboot and no app to open.</p>
+        </div>
+        <svg class="diagram" viewBox="0 0 360 452" role="img" aria-labelledby="dg-title dg-desc">
+          <title id="dg-title">Audio Hub signal flow</title>
+          <desc id="dg-desc">Audio from the mixer enters the PCM1808 converter, passes through the ESP32 and returns through the PCM5102A converter. The ESP32 connects to a PC over Wi-Fi in mode A, receives a phone's audio over Bluetooth in the center position, or loops input to output in mode B.</desc>
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path class="dg-head" d="M0 0 L10 5 L0 10 Z"/>
+            </marker>
+          </defs>
+          <rect class="dg-box" x="80" y="6" width="200" height="48" rx="10"/>
+          <text class="dg-t" x="180" y="35">Mixer / audio source</text>
+
+          <path class="dg-flow" d="M105 56 V136" marker-end="url(#ah)"/>
+          <text class="dg-s dg-end" x="97" y="88">line in</text>
+          <path class="dg-flow" d="M255 138 V58" marker-end="url(#ah)"/>
+          <text class="dg-s dg-start" x="263" y="88">line out</text>
+
+          <rect class="dg-frame" x="14" y="108" width="332" height="212" rx="16"/>
+          <text class="dg-l dg-mid" x="180" y="128">WYRÁ AUDIO HUB</text>
+
+          <rect class="dg-box" x="40" y="140" width="130" height="52" rx="8"/>
+          <text class="dg-t" x="105" y="162">PCM1808</text>
+          <text class="dg-s" x="105" y="180">ADC · line in</text>
+          <rect class="dg-box" x="190" y="140" width="130" height="52" rx="8"/>
+          <text class="dg-t" x="255" y="162">PCM5102A</text>
+          <text class="dg-s" x="255" y="180">DAC · line out</text>
+
+          <path class="dg-flow" d="M105 194 V226" marker-end="url(#ah)"/>
+          <path class="dg-flow" d="M255 228 V196" marker-end="url(#ah)"/>
+
+          <rect class="dg-core" x="40" y="230" width="280" height="68" rx="10"/>
+          <text class="dg-t dg-big" x="180" y="258">ESP32</text>
+          <text class="dg-s" x="180" y="280">2 × I2S · Wi-Fi · Bluetooth · OLED</text>
+
+          <path class="dg-flow" d="M70 304 V366" marker-start="url(#ah)" marker-end="url(#ah)"/>
+          <path class="dg-flow" d="M180 366 V304" marker-end="url(#ah)"/>
+          <path class="dg-link" d="M290 300 V366"/>
+
+          <rect class="dg-box" x="8" y="370" width="112" height="76" rx="10"/>
+          <text class="dg-t" x="64" y="394">A · Wi-Fi</text>
+          <text class="dg-s" x="64" y="413">TCP port 7000</text>
+          <text class="dg-s" x="64" y="430">PC &amp; apps</text>
+          <rect class="dg-box" x="124" y="370" width="112" height="76" rx="10"/>
+          <text class="dg-t" x="180" y="394">◆ Bluetooth</text>
+          <text class="dg-s" x="180" y="413">A2DP speaker</text>
+          <text class="dg-s" x="180" y="430">phone → out</text>
+          <rect class="dg-box" x="240" y="370" width="112" height="76" rx="10"/>
+          <text class="dg-t" x="296" y="394">B · Aux</text>
+          <text class="dg-s" x="296" y="413">in → out</text>
+          <text class="dg-s" x="296" y="430">no network</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Three modes, one switch</p>
+          <h2 class="metal">Pick the job, slide the switch</h2>
+        </div>
+        <div class="grid grid--3">
+          <div class="card">
+            <span class="marker">A</span>
+            <h3>Wi-Fi audio server</h3>
+            <p>Streams the line input to up to four apps on your network over TCP and plays the audio they send back. Python example clients are included.</p>
+          </div>
+          <div class="card">
+            <span class="marker marker--steel">◆</span>
+            <h3>Bluetooth speaker</h3>
+            <p>Pair a phone, tablet or laptop and its audio plays on the line output: music, backing tracks, announcements. Wi-Fi is switched off in this mode.</p>
+          </div>
+          <div class="card">
+            <span class="marker">B</span>
+            <h3>Aux pass-through</h3>
+            <p>Line in goes straight to line out through the converters, for local monitoring with no network at all.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Set up from your phone</p>
+          <h2 class="metal">No app to install</h2>
+          <p>The device opens its own Wi-Fi network for setup and serves a live dashboard to any browser on your network.</p>
+        </div>
+        <div class="screens">
+          <figure>
+            <div class="screen">
+              <img src="/assets/img/audio-hub-setup.webp" width="640" height="1189" loading="lazy" alt="The Audio Hub setup page: choose a Wi-Fi network, enter the password and pick a time zone">
+            </div>
+            <figcaption>Join the setup network, pick your Wi-Fi and time zone, and save.</figcaption>
+          </figure>
+          <figure class="center-v">
+            <svg class="oled" viewBox="0 0 300 206" role="img" aria-labelledby="oled-title">
+              <title id="oled-title">The Audio Hub's OLED in TCP server mode: IP address, two connected apps and input and output level bars</title>
+              <rect class="oled-board" x="4" y="4" width="292" height="198" rx="16"/>
+              <rect class="oled-bezel" x="22" y="20" width="256" height="136" rx="6"/>
+              <g class="oled-px">
+                <text x="30" y="43">MODE: TCP SERVER</text>
+                <text x="30" y="62">IP: 192.168.1.150</text>
+                <text x="236" y="62">2</text>
+                <text x="30" y="90">IN:</text>
+                <text x="30" y="118">OUT:</text>
+                <rect x="83" y="77" width="138" height="15"/>
+                <rect x="83" y="105" width="74" height="15"/>
+              </g>
+              <rect class="oled-line" x="83" y="77" width="184" height="15"/>
+              <rect class="oled-line" x="83" y="105" width="184" height="15"/>
+              <circle class="ic-steel" cx="40" cy="179" r="11"/>
+              <circle class="ic-fill-copper" cx="40" cy="179" r="4"/>
+              <circle class="ic-steel" cx="74" cy="179" r="11"/>
+              <circle class="ic-fill-copper" cx="74" cy="179" r="4"/>
+              <text class="dg-s dg-end" x="186" y="183">MODE</text>
+              <rect class="ic-copper" x="196" y="169" width="82" height="20" rx="10"/>
+              <rect class="ic-fill-amber" x="199" y="172" width="26" height="14" rx="7"/>
+            </svg>
+            <figcaption>The OLED on the device shows the mode, IP address, connected apps and live levels.</figcaption>
+          </figure>
+        </div>
+        <div class="note mt-lg narrow">
+          <p><strong>Built for real rooms.</strong> Bluetooth and Aux work without any setup. If the router takes a while to come back after a power cut, the Audio Hub keeps the saved network and reconnects on its own.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="container split split--top">
+        <div>
+          <p class="eyebrow">Specifications</p>
+          <h2 class="metal">What's inside</h2>
+          <p class="muted">Two I2S buses run in full duplex, with the ESP32 as clock master for both converters.</p>
+        </div>
+        <table class="spec-table">
+          <tbody>
+            <tr><th scope="row">Audio</th><td>44.1 kHz / 16-bit, stereo, full duplex</td></tr>
+            <tr><th scope="row">Converters</th><td>PCM1808 ADC · PCM5102A DAC</td></tr>
+            <tr><th scope="row">Wi-Fi</th><td>2.4 GHz · raw PCM over TCP, port 7000 · up to 4 clients</td></tr>
+            <tr><th scope="row">Bluetooth</th><td>Classic Bluetooth A2DP (speaker mode)</td></tr>
+            <tr><th scope="row">Controls</th><td>3-position mode switch</td></tr>
+            <tr><th scope="row">Display</th><td>0.96" OLED: mode, IP address, level meters</td></tr>
+            <tr><th scope="row">Setup</th><td>Web page from your phone · live web dashboard</td></tr>
+            <tr><th scope="row">Power</th><td>5 V USB (2 A supply recommended)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">The build kit</p>
+          <h2 class="metal">Build your own</h2>
+          <p>The first release is a digital build kit: everything you need to make one yourself, without fighting library versions or compiler settings.</p>
+        </div>
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 class="mt-0">The kit will include</h3>
+            <ul class="checklist">
+              <li>Pre-built firmware with a one-click installer in your browser (Chrome or Edge)</li>
+              <li>Step-by-step build guide (PDF) with wiring diagrams</li>
+              <li>Parts list with the exact modules used</li>
+              <li>Python example clients to stream audio to and from the device</li>
+              <li>Email support while you build</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="mt-0">You'll need</h3>
+            <ul class="checklist checklist--copper">
+              <li>ESP32 board with a built-in 0.96" OLED (classic ESP32, not S2, S3 or C3)</li>
+              <li>PCM1808 ADC and PCM5102A DAC modules</li>
+              <li>3-position slide switch, 2 × 10 kΩ resistors, audio jacks and wire</li>
+              <li>5 V / 2 A USB power supply</li>
+              <li>Basic soldering tools</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note mt-lg">
+          <p><strong>Good to know</strong></p>
+          <ul>
+            <li>Wi-Fi mode speaks a simple raw-PCM protocol over TCP. It works with the included Python clients or your own app; it doesn't plug into Voicemeeter or OBS out of the box.</li>
+            <li>Line out over Wi-Fi and Bluetooth playback are tested on hardware. Line-in streaming and the Aux mode are in final testing.</li>
+            <li>The firmware is source-available for personal, non-commercial use. Reselling it, or selling devices built with it, isn't allowed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="narrow">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="metal">Questions</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Do I need to know how to code?</summary>
+            <p>No. The kit's firmware installs from your browser and the guide walks you through the wiring. You will need to solder a few wires.</p>
+          </details>
+          <details>
+            <summary>Is the source code available?</summary>
+            <p>Yes. The source is on GitHub for personal use. The kit adds ready-to-flash firmware, the build guide and support.</p>
+          </details>
+          <details>
+            <summary>Which devices can play over Bluetooth?</summary>
+            <p>Any phone, tablet or computer that can play to a Bluetooth speaker. The Audio Hub shows up as <code>Audio_Server_ESP32</code>.</p>
+          </details>
+          <details>
+            <summary>Can I buy one already assembled?</summary>
+            <p>Not yet. If you'd like one, email us: it helps decide whether to build a batch.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <p class="eyebrow">Coming soon</p>
+          <h2 class="metal">Be first to build one</h2>
+          <p>Send a one-line email and you'll get a note when the build kit is ready.</p>
+          <div class="btn-row btn-row--center">
+            <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Audio%20Hub%20-%20let%20me%20know%20when%20it's%20ready">Get notified</a>
+            <a class="btn btn--ghost" href="https://buymeacoffee.com/hapyjatech">Support on Buy Me a Coffee</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Wyrá home">
+          <img src="/assets/img/logo-bird-360.webp" width="360" height="200" alt="">
+          <span class="wordmark">Wyrá</span>
+        </a>
+        <p>Electronics that listen, play and measure. Designed and built in Brazil.</p>
+      </div>
+      <nav aria-label="Products">
+        <h2>Products</h2>
+        <ul>
+          <li><a href="/audio-hub/">Audio Hub</a></li>
+          <li><a href="/gift-box/">Magic Gift Box</a></li>
+          <li><a href="/server-room-monitor/">Server Room Monitor</a></li>
+          <li><a href="/services/">Custom work</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:levy@fisica.ufc.br">levy@fisica.ufc.br</a></li>
+          <li><a href="https://github.com/WyraGit">GitHub</a></li>
+          <li><a href="https://buymeacoffee.com/hapyjatech">Buy Me a Coffee</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-legal">© 2026 Wyrá · Sergio Levy. All rights reserved.</div>
+  </footer>
+</body>
+</html>

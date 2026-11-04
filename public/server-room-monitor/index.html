@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Server Room Monitor — climate and power monitoring over MQTT | Wyrá</title>
+  <meta name="description" content="Case study: an Arduino Mega monitor with nine temperature and humidity sensors and current sensors on three air conditioners, reporting JSON over MQTT.">
+  <link rel="canonical" href="https://wyra.pages.dev/server-room-monitor/">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wyrá">
+  <meta property="og:title" content="Server Room Monitor — climate and power monitoring over MQTT">
+  <meta property="og:description" content="Nine temperature and humidity sensors and three air-conditioner current sensors, reporting over MQTT.">
+  <meta property="og:url" content="https://wyra.pages.dev/server-room-monitor/">
+  <meta property="og:image" content="https://wyra.pages.dev/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/img/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Wyrá home">
+        <img src="/assets/img/logo-bird-360.webp" width="360" height="200" alt="">
+        <span class="wordmark">Wyrá</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#products" aria-current="page">Products</a>
+        <a href="/services/">Services</a>
+        <a class="nav-optional" href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumbs"><a href="/#products">Products</a><span>/</span>Server Room Monitor</p>
+        <div class="split">
+          <div>
+            <span class="badge badge--case">Case study · not for sale</span>
+            <h1 class="metal">Server Room Monitor</h1>
+            <p class="lead">A climate and power monitor built for the server room of the Physics Department at the Federal University of Ceará (UFC). It watches temperature, humidity and the air-conditioning load, and reports everything over MQTT.</p>
+            <ul class="chips" aria-label="Key facts">
+              <li>9 × temperature + humidity</li>
+              <li>3 × AC current</li>
+              <li>MQTT + JSON</li>
+              <li>Arduino Mega 2560</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="/services/">Need something like this?</a>
+              <a class="btn btn--ghost" href="https://github.com/WyraGit/Arduino-Mega-2560-Temperature-Humidity-and-Current-Sensor">View the source</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 160 120">
+              <rect class="ic-steel" x="34" y="10" width="62" height="100" rx="6"/>
+              <rect class="ic-steel" x="43" y="21" width="44" height="15" rx="2"/>
+              <rect class="ic-steel" x="43" y="43" width="44" height="15" rx="2"/>
+              <rect class="ic-steel" x="43" y="65" width="44" height="15" rx="2"/>
+              <rect class="ic-steel" x="43" y="87" width="44" height="15" rx="2"/>
+              <circle class="ic-fill-amber" cx="80" cy="28.5" r="2.5"/>
+              <circle class="ic-fill-amber" cx="80" cy="50.5" r="2.5"/>
+              <circle class="ic-fill-amber" cx="80" cy="72.5" r="2.5"/>
+              <circle class="ic-fill-copper" cx="80" cy="94.5" r="2.5"/>
+              <rect class="ic-copper" x="114" y="18" width="13" height="62" rx="6.5"/>
+              <circle class="ic-copper" cx="120.5" cy="90" r="11"/>
+              <path class="ic-amber ic-glow" d="M120.5 40 V90"/>
+              <path class="ic-copper" d="M131 30 H136 M131 44 H136 M131 58 H136"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">What it does</p>
+          <h2 class="metal">Every sensor, around the clock</h2>
+        </div>
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 class="mt-0">Climate across the room</h3>
+            <p>Nine DHT11 sensors spread over the room report temperature and humidity. The monitor averages them and leaves out any sensor that fails a reading, so one bad cable doesn't skew the result.</p>
+          </div>
+          <div class="card">
+            <h3 class="mt-0">Air-conditioning load</h3>
+            <p>Three clamp-on current sensors (SCT-013) measure what each air conditioner draws, so you can tell at a glance whether a unit has stopped working.</p>
+          </div>
+          <div class="card">
+            <h3 class="mt-0">Data you can use anywhere</h3>
+            <p>Readings go out as JSON over MQTT on separate topics for temperature, humidity and current, ready for Home Assistant or any dashboard that speaks MQTT.</p>
+          </div>
+          <div class="card">
+            <h3 class="mt-0">Status on the wall</h3>
+            <p>A 20 × 4 LCD rotates through network status, the time (synced over NTP) and the latest readings, so you can check the room without a computer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it's built</p>
+          <h2 class="metal">From the sensors to the dashboard</h2>
+        </div>
+        <ul class="flow" aria-label="Data path">
+          <li>9 × DHT11 · 3 × SCT-013<small>sensors</small></li>
+          <li class="arrow" aria-hidden="true">→</li>
+          <li>Arduino Mega 2560<small>averaging · LCD · NTP</small></li>
+          <li class="arrow" aria-hidden="true">→</li>
+          <li>Ethernet<small>W5100 / ENC28J60</small></li>
+          <li class="arrow" aria-hidden="true">→</li>
+          <li>MQTT broker<small>JSON topics</small></li>
+          <li class="arrow" aria-hidden="true">→</li>
+          <li>Home Assistant<small>or any dashboard</small></li>
+        </ul>
+
+        <div class="grid grid--2 mt-lg">
+          <div>
+            <h3>Example message</h3>
+            <p class="muted">Temperature readings, published on <code>sensores/ArduinoDHT11AC/Temp</code>:</p>
+<pre><code>{
+  <span class="k">"Temp1"</span>: <span class="n">25.5</span>, …, <span class="k">"Temp9"</span>: <span class="n">26.0</span>,
+  <span class="k">"MeanValueTemp"</span>: <span class="n">25.8</span>
+}</code></pre>
+          </div>
+          <div>
+            <h3>The project</h3>
+            <p class="muted">Developed between December 2024 and February 2025 together with the department. The full source code and wiring are on GitHub.</p>
+            <p class="muted">It's not for sale, but the same approach works for labs, small data rooms and workshops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <p class="eyebrow">Custom work</p>
+          <h2 class="metal">Need eyes on your own room?</h2>
+          <p>Sensors, MQTT, dashboards: tell us what you need to watch and we'll build the first working version.</p>
+          <div class="btn-row btn-row--center">
+            <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Monitoring%20project">Email us</a>
+            <a class="btn btn--ghost" href="/services/">See services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Wyrá home">
+          <img src="/assets/img/logo-bird-360.webp" width="360" height="200" alt="">
+          <span class="wordmark">Wyrá</span>
+        </a>
+        <p>Electronics that listen, play and measure. Designed and built in Brazil.</p>
+      </div>
+      <nav aria-label="Products">
+        <h2>Products</h2>
+        <ul>
+          <li><a href="/audio-hub/">Audio Hub</a></li>
+          <li><a href="/gift-box/">Magic Gift Box</a></li>
+          <li><a href="/server-room-monitor/">Server Room Monitor</a></li>
+          <li><a href="/services/">Custom work</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:levy@fisica.ufc.br">levy@fisica.ufc.br</a></li>
+          <li><a href="https://github.com/WyraGit">GitHub</a></li>
+          <li><a href="https://buymeacoffee.com/hapyjatech">Buy Me a Coffee</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-legal">© 2026 Wyrá · Sergio Levy. All rights reserved.</div>
+  </footer>
+</body>
+</html>

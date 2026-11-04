@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magic Gift Box — a DIY ESP32-C3 gift that lights up and plays music | Wyrá</title>
+  <meta name="description" content="A gift box that lights up and plays a melody the moment it's opened. Build it yourself with an ESP32-C3, a few parts and a step-by-step guide. DIY kit coming soon.">
+  <link rel="canonical" href="https://wyra.pages.dev/gift-box/">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Wyrá">
+  <meta property="og:title" content="Magic Gift Box — a DIY ESP32-C3 gift that lights up and plays music">
+  <meta property="og:description" content="Open the lid and it lights up and plays a melody. A build-it-yourself kit with a step-by-step guide.">
+  <meta property="og:url" content="https://wyra.pages.dev/gift-box/">
+  <meta property="og:image" content="https://wyra.pages.dev/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/assets/img/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Wyrá home">
+        <img src="/assets/img/logo-bird-360.webp" width="360" height="200" alt="">
+        <span class="wordmark">Wyrá</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#products" aria-current="page">Products</a>
+        <a href="/services/">Services</a>
+        <a class="nav-optional" href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="crumbs"><a href="/#products">Products</a><span>/</span>Magic Gift Box</p>
+        <div class="split">
+          <div>
+            <span class="badge badge--soon">DIY kit · coming soon</span>
+            <h1 class="metal">Magic Gift Box</h1>
+            <p class="lead">A gift box that lights up and plays a melody the moment it's opened. Build it yourself with an ESP32-C3, a handful of parts and a step-by-step guide.</p>
+            <ul class="chips" aria-label="Key facts">
+              <li>ESP32-C3</li>
+              <li>RGB light + melody</li>
+              <li>Opens on light</li>
+              <li>USB powered</li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Magic%20Gift%20Box%20-%20let%20me%20know%20when%20it's%20ready">Get notified</a>
+              <a class="btn btn--ghost" href="#how">How it works</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 160 120">
+              <path class="ic-amber ic-glow" d="M64 34 L52 12 M80 31 V6 M96 34 L108 12"/>
+              <path class="ic-copper" d="M42 24 L36 20 M118 24 L124 20"/>
+              <rect class="ic-steel" x="40" y="62" width="80" height="48" rx="4"/>
+              <path class="ic-copper" d="M80 62 V110 M40 84 H120"/>
+              <rect class="ic-steel" x="34" y="48" width="92" height="13" rx="3" transform="rotate(-10 34 61)"/>
+              <path class="ic-copper" d="M72 54 Q64 40 76 42 Q80 46 80 53 Q80 46 84 42 Q96 40 88 54" transform="rotate(-6 80 50)"/>
+              <circle class="ic-fill-amber" cx="137" cy="90" r="5"/>
+              <path class="ic-amber" d="M142 90 V68 Q149 70 151 77"/>
+              <circle class="ic-fill-copper" cx="18" cy="82" r="4"/>
+              <path class="ic-copper" d="M22 82 V64"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2 class="metal">A little show when the lid opens</h2>
+        </div>
+        <div class="grid grid--3">
+          <div class="card">
+            <span class="marker">1</span>
+            <h3>It waits in the dark</h3>
+            <p>A light sensor (LDR) inside the box keeps reading the light level while the lid is closed.</p>
+          </div>
+          <div class="card">
+            <span class="marker">2</span>
+            <h3>The lid opens</h3>
+            <p>Light floods in, the ESP32-C3 notices the change and starts the sequence.</p>
+          </div>
+          <div class="card">
+            <span class="marker">3</span>
+            <h3>Light and music</h3>
+            <p>An RGB LED cycles through soft colors while a buzzer plays the melody. Close the lid and it's ready to go again.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="container">
+        <div class="grid grid--2">
+          <div class="card">
+            <p class="eyebrow">What you'll build with</p>
+            <ul class="checklist checklist--copper">
+              <li>ESP32-C3 board</li>
+              <li>RGB LED and three 220 Ω resistors</li>
+              <li>Passive buzzer</li>
+              <li>Light sensor (LDR) and a 10 kΩ resistor</li>
+              <li>USB cable or power bank</li>
+              <li>A gift box, decorative paper and tape</li>
+            </ul>
+          </div>
+          <div class="card">
+            <p class="eyebrow">The kit will include</p>
+            <ul class="checklist">
+              <li>Step-by-step guide with wiring diagrams</li>
+              <li>Ready-to-upload code</li>
+              <li>How to tune the light sensor to your box</li>
+              <li>How to change the colors and the melody</li>
+              <li>Public-domain melodies, ready to play</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note mt-lg">
+          <p><strong>Make it yours.</strong> The colors, the melody and how much light it takes to trigger are a few lines of code each, and the guide shows exactly where to change them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <p class="eyebrow">Coming soon</p>
+          <h2 class="metal">Planning a surprise?</h2>
+          <p>Email us and you'll get a note as soon as the kit is available.</p>
+          <div class="btn-row btn-row--center">
+            <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Magic%20Gift%20Box%20-%20let%20me%20know%20when%20it's%20ready">Get notified</a>
+            <a class="btn btn--ghost" href="/#products">See all products</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Wyrá home">
+          <img src="/assets/img/logo-bird-360.webp" width="360" height="200" alt="">
+          <span class="wordmark">Wyrá</span>
+        </a>
+        <p>Electronics that listen, play and measure. Designed and built in Brazil.</p>
+      </div>
+      <nav aria-label="Products">
+        <h2>Products</h2>
+        <ul>
+          <li><a href="/audio-hub/">Audio Hub</a></li>
+          <li><a href="/gift-box/">Magic Gift Box</a></li>
+          <li><a href="/server-room-monitor/">Server Room Monitor</a></li>
+          <li><a href="/services/">Custom work</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:levy@fisica.ufc.br">levy@fisica.ufc.br</a></li>
+          <li><a href="https://github.com/WyraGit">GitHub</a></li>
+          <li><a href="https://buymeacoffee.com/hapyjatech">Buy Me a Coffee</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-legal">© 2026 Wyrá · Sergio Levy. All rights reserved.</div>
+  </footer>
+</body>
+</html>
