@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Custom firmware and prototypes — ESP32, Arduino, IoT and scientific software | Wyrá</title>
-  <meta name="description" content="ESP32 and Arduino firmware, IoT monitoring, network audio and scientific computing in C++ and Python, from a physicist who builds hardware. Email for a quote.">
+  <meta name="description" content="ESP32 and Arduino firmware, IoT and network audio, from a physicist who builds hardware. Firmware reviews for $250, prototype sprints from $900, or $45 an hour.">
   <link rel="canonical" href="https://wyra.pages.dev/services/">
   <meta name="theme-color" content="#000000">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Wyrá">
   <meta property="og:title" content="Custom firmware and prototypes | Wyrá">
-  <meta property="og:description" content="ESP32 and Arduino firmware, IoT monitoring, network audio and scientific software. Email for a quote.">
+  <meta property="og:description" content="ESP32 and Arduino firmware, IoT and network audio. Firmware reviews for $250, prototype sprints from $900, or $45 an hour.">
   <meta property="og:url" content="https://wyra.pages.dev/services/">
   <meta property="og:image" content="https://wyra.pages.dev/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="/assets/img/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=2">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -48,7 +48,7 @@
           <p class="lead">Have a sensor, a board or an idea? Wyrá writes the firmware and builds the first working version, documented and tested on real hardware.</p>
           <div class="btn-row btn-row--center">
             <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Project%20enquiry">Tell us about your project</a>
-            <a class="btn btn--ghost" href="#how">How it works</a>
+            <a class="btn btn--ghost" href="#pricing">See prices</a>
           </div>
         </div>
       </div>
@@ -113,7 +113,63 @@
       </div>
     </section>
 
-    <section class="section section--tinted" id="how">
+    <section class="section section--tinted" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Pricing</p>
+          <h2 class="metal">Clear prices, in US dollars</h2>
+          <p>Fixed prices for well-defined work, and an hourly rate for everything else.</p>
+        </div>
+        <div class="grid grid--3">
+          <div class="card price-card">
+            <div class="card-top"><span class="badge badge--live">Fixed price</span></div>
+            <h3>Firmware review</h3>
+            <p class="price"><span class="metal">$250</span></p>
+            <p class="price-meta">Written report within 7 days</p>
+            <p>A second pair of eyes on your ESP32 or Arduino code before it ships.</p>
+            <ul class="checklist">
+              <li>Up to 1,500 lines of your code (libraries not counted)</li>
+              <li>Bugs and risks: Wi-Fi reconnects, memory, timing, power</li>
+              <li>Fixes ranked by impact, with code examples</li>
+              <li>A 30-minute call to go through the report</li>
+            </ul>
+            <a class="btn btn--ghost" href="mailto:levy@fisica.ufc.br?subject=Firmware%20review">Book a review</a>
+          </div>
+          <div class="card price-card price-card--featured">
+            <div class="card-top"><span class="badge badge--live">Fixed price</span></div>
+            <h3>Prototype sprint</h3>
+            <p class="price"><span class="price-from">From</span> <span class="metal">$900</span></p>
+            <p class="price-meta">Working demo in 3 to 4 weeks</p>
+            <p>One clearly defined set of features, built and tested on real hardware.</p>
+            <ul class="checklist">
+              <li>Scope agreed in writing before work starts</li>
+              <li>Source code, wiring notes and build instructions</li>
+              <li>A video of the demo running on the board</li>
+              <li>One round of changes after the demo</li>
+            </ul>
+            <a class="btn btn--primary" href="mailto:levy@fisica.ufc.br?subject=Prototype%20sprint">Start a sprint</a>
+          </div>
+          <div class="card price-card">
+            <div class="card-top"><span class="badge badge--case">Flexible</span></div>
+            <h3>Hourly work</h3>
+            <p class="price"><span class="metal">$45</span> <small>/ hour</small></p>
+            <p class="price-meta">Estimate before any work starts</p>
+            <p>Fixes, new features, ports, scientific code and anything that doesn't fit a package.</p>
+            <ul class="checklist">
+              <li>A written estimate in hours first</li>
+              <li>Billed in one-hour blocks</li>
+              <li>Short progress notes as the work goes</li>
+            </ul>
+            <a class="btn btn--ghost" href="mailto:levy@fisica.ufc.br?subject=Hourly%20work">Ask for an estimate</a>
+          </div>
+        </div>
+        <div class="note mt-lg">
+          <p>Prices exclude hardware and shipping. Fixed-price work is paid half at the start and half on delivery; hourly work is invoiced every two weeks. Invoices come from Brazil and are paid by international bank transfer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">How it works</p>
@@ -128,13 +184,40 @@
           <div class="card">
             <span class="marker">2</span>
             <h3>Scope and quote</h3>
-            <p>We agree on features, timeline and price before any work starts.</p>
+            <p>A fixed price for reviews and sprints, or an estimate in hours. Nothing starts until you agree.</p>
           </div>
           <div class="card">
             <span class="marker">3</span>
             <h3>Working prototype</h3>
             <p>You get the code, wiring notes and a demo running on real hardware.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tinted">
+      <div class="narrow">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="metal">Before you write</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Who owns the code?</summary>
+            <p>You do. The code written for your project is yours to use, change and sell. If it builds on code Wyrá already had, such as the Audio Hub firmware, you get a license to use that part in your product.</p>
+          </details>
+          <details>
+            <summary>Do you need my hardware?</summary>
+            <p>Usually not. The work is done on a development board with the same chip and parts, and you run the result on yours. If your hardware is unusual, we talk it through before you pay anything.</p>
+          </details>
+          <details>
+            <summary>What if my project is bigger than one sprint?</summary>
+            <p>It's split into sprints, each with its own scope and price. You can stop after any of them and keep everything delivered so far.</p>
+          </details>
+          <details>
+            <summary>Which tools do you use?</summary>
+            <p>The Arduino framework on ESP32 (classic and C3) and AVR boards such as the Mega 2560, and C++ and Python for desktop tools and data analysis. Code is delivered in a Git repository.</p>
+          </details>
         </div>
       </div>
     </section>
